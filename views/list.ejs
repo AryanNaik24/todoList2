@@ -4,7 +4,7 @@
     <h1> <%= listTitle %> </h1>
   </div>
 
-  <div class="box">
+  <div class="box side">
 
     <% newListItems.forEach((item)=>{  %>
       <form action="/delete" method="post">
@@ -12,14 +12,21 @@
       <input type="checkbox" value="<%=item._id%>" name="checkbox" onChange="this.form.submit()">
       <p><%=item.name%></p>
     </div>
+    <input type="hidden" name="listName" value="<%=listTitle%>">
   </form>
     <%}) %>
+    
 
 
       <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" name="list">+</button>
+        <button type="submit" value="<%=listTitle%>" name="list">+</button>
       </form>
+  </div>
+  <div class="rr box">
+    <p >*Note  :  </p>
+    <p class="notice">To Make different lists, go to the url and type "/" before the name of the list which you want to create.</p>
+    <p class="notice">Click on the checkbox to remove the item of desire.</p>
   </div>
 
 <%- include("footer") -%>
