@@ -64,8 +64,11 @@ button {
   background-color: #A683E3;
   color: #fff;
   font-size: 30px;
-  padding-bottom: 6px;
-  border-width: 0;
+  /* padding-bottom: 6px; */
+  padding-top: 5px;
+  padding-right: 7px;
+  
+  border-width: 1px solid;
 }
 
 input[type="text"] {
