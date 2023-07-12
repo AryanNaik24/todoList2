@@ -47,7 +47,7 @@ app.get("/", function(req, res) {
 
 
   Item.find({}).then(function (foundItems) {
-    console.log(foundItems);
+    // console.log(foundItems);
     if (foundItems.length===0){
       Item.insertMany(defaultItems).catch(function (err) {
         if(err){
@@ -80,6 +80,20 @@ app.post("/", function(req, res){
  res.redirect('/');
 
 
+});
+
+app.post("/delete",(req,res)=>{
+  const checkedItemId=req.body.checkbox;
+  Item.findByIdAndRemove(checkedItemId).then((foundItem)=>{
+
+    if (foundItem) {
+      res.redirect("/");
+    }
+  }).catch((err)=>{
+    if (err){
+      console.log(err);
+    }
+  });
 });
 
 app.get("/work", function(req,res){
